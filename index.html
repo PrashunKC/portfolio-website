@@ -978,7 +978,12 @@
                 </div>
             </div>
             
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <!-- Hidden field for spam protection -->
+                <p style="display: none;">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+                
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" class="form-control" required>
@@ -1149,24 +1154,8 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        // Contact form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data.name || !data.email || !data.message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Show success message (in real implementation, you'd send to a server)
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
-        });
+        // Netlify handles form submission automatically
+        // No custom form handling needed
 
         // Add hover effects to skill items
         document.querySelectorAll('.skill-item').forEach(item => {
