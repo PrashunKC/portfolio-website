@@ -513,6 +513,10 @@
         .skill-item:nth-child(4):hover i { color: #4584b6; } /* Python - lighter blue */
         .skill-item:nth-child(5):hover i { color: #4fa8d8; } /* Database - lighter blue */
         .skill-item:nth-child(6):hover i { color: #ff9900; } /* AWS - orange */
+        .skill-item:nth-child(7):hover i { color: #00599c; } /* C++ - blue */
+        .skill-item:nth-child(8):hover i { color: #a8b9cc; } /* C - light blue/gray */
+        .skill-item:nth-child(9):hover i { color: #ff6b35; } /* Assembly - orange-red */
+        .skill-item:nth-child(10):hover i { color: #6ea832; } /* Make - green */
 
         .skill-item:hover i 
         {
@@ -756,6 +760,14 @@
             transition: var(--transition-bounce);
             position: relative;
             border: 2px solid transparent;
+            overflow: visible;
+        }
+
+        .social-link i 
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Individual social media brand colors */
@@ -765,6 +777,7 @@
         .social-link:nth-child(4) 
         { 
             background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f77737, #fcaf45);
+            padding: 2px;
         }
         
         /* Instagram gradient */
@@ -874,6 +887,128 @@
             }
         }
 
+        /* Modal Styles */
+        .modal 
+        {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active 
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content 
+        {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header 
+        {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .modal-icon 
+        {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .modal-title 
+        {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .modal-body 
+        {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .modal-body p 
+        {
+            margin-bottom: 1rem;
+        }
+
+        .modal-body strong 
+        {
+            color: var(--text-primary);
+        }
+
+        .modal-close 
+        {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover 
+        {
+            color: var(--accent-color);
+            background: var(--bg-secondary);
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn 
+        {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp 
+        {
+            from 
+            {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            
+            to 
+            {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar 
         {
@@ -955,29 +1090,45 @@
             </div>
             
             <div class="skills-grid">
-                <div class="skill-item">
+                <div class="skill-item" data-skill="javascript">
                     <i class="fab fa-js-square"></i>
                     <h4>JavaScript</h4>
                 </div>
-                <div class="skill-item">
+                <div class="skill-item" data-skill="react">
                     <i class="fab fa-react"></i>
                     <h4>React</h4>
                 </div>
-                <div class="skill-item">
+                <div class="skill-item" data-skill="nodejs">
                     <i class="fab fa-node-js"></i>
                     <h4>Node.js</h4>
                 </div>
-                <div class="skill-item">
+                <div class="skill-item" data-skill="python">
                     <i class="fab fa-python"></i>
                     <h4>Python</h4>
                 </div>
-                <div class="skill-item">
+                <div class="skill-item" data-skill="database">
                     <i class="fas fa-database"></i>
                     <h4>Database</h4>
                 </div>
-                <div class="skill-item">
+                <div class="skill-item" data-skill="cloud">
                     <i class="fab fa-aws"></i>
                     <h4>Cloud</h4>
+                </div>
+                <div class="skill-item" data-skill="cpp">
+                    <i class="fas fa-code"></i>
+                    <h4>C++</h4>
+                </div>
+                <div class="skill-item" data-skill="c">
+                    <i class="fas fa-file-code"></i>
+                    <h4>C</h4>
+                </div>
+                <div class="skill-item" data-skill="assembly">
+                    <i class="fas fa-microchip"></i>
+                    <h4>Assembly</h4>
+                </div>
+                <div class="skill-item" data-skill="make">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Make</h4>
                 </div>
             </div>
         </div>
@@ -1089,6 +1240,20 @@
             </div>
         </div>
     </section>
+
+    <!-- Skill Modal -->
+    <div id="skillModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeSkillModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i id="modalIcon" class="modal-icon"></i>
+                <h3 id="modalTitle" class="modal-title"></h3>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1264,7 +1429,106 @@
         // Netlify handles form submission automatically
         // No custom form handling needed
 
-        // Add hover effects to skill items
+        // Skill descriptions data
+        const skillDescriptions = {
+            javascript: {
+                title: 'JavaScript',
+                icon: 'fab fa-js-square',
+                description: '<p><strong>JavaScript</strong> is a versatile, high-level programming language that powers the interactive elements of the web. It\'s the backbone of modern web development.</p><p><strong>What I use it for:</strong> Creating dynamic user interfaces, handling user interactions, building full-stack applications, and developing modern web experiences.</p><p><strong>Key Features:</strong> Event-driven programming, asynchronous operations with async/await, DOM manipulation, and ES6+ modern syntax.</p>'
+            },
+            react: {
+                title: 'React',
+                icon: 'fab fa-react',
+                description: '<p><strong>React</strong> is a powerful JavaScript library for building user interfaces, developed by Facebook. It uses a component-based architecture for creating reusable UI elements.</p><p><strong>What I use it for:</strong> Building single-page applications (SPAs), creating interactive UIs, managing application state, and developing scalable frontend architectures.</p><p><strong>Key Features:</strong> Virtual DOM for optimal performance, component reusability, hooks for state management, and a massive ecosystem of libraries.</p>'
+            },
+            nodejs: {
+                title: 'Node.js',
+                icon: 'fab fa-node-js',
+                description: '<p><strong>Node.js</strong> is a JavaScript runtime built on Chrome\'s V8 engine that allows JavaScript to run on the server side. It\'s perfect for building scalable network applications.</p><p><strong>What I use it for:</strong> Building RESTful APIs, creating real-time applications with WebSockets, server-side rendering, and developing microservices.</p><p><strong>Key Features:</strong> Non-blocking I/O, event-driven architecture, NPM package ecosystem, and excellent performance for I/O-heavy operations.</p>'
+            },
+            python: {
+                title: 'Python',
+                icon: 'fab fa-python',
+                description: '<p><strong>Python</strong> is a high-level, interpreted programming language known for its simplicity and readability. It\'s one of the most versatile languages in modern software development.</p><p><strong>What I use it for:</strong> Backend development, data analysis, automation scripts, machine learning projects, and API development with frameworks like Django and Flask.</p><p><strong>Key Features:</strong> Clean and readable syntax, extensive standard library, strong community support, and excellent for rapid prototyping.</p>'
+            },
+            database: {
+                title: 'Database Management',
+                icon: 'fas fa-database',
+                description: '<p><strong>Database Management</strong> involves designing, implementing, and maintaining database systems to store and retrieve data efficiently. I work with both SQL and NoSQL databases.</p><p><strong>What I use it for:</strong> Designing database schemas, writing complex queries, optimizing database performance, and ensuring data integrity and security.</p><p><strong>Technologies:</strong> PostgreSQL, MySQL, MongoDB, Redis, and database design principles like normalization and indexing.</p>'
+            },
+            cloud: {
+                title: 'Cloud Computing',
+                icon: 'fab fa-aws',
+                description: '<p><strong>Cloud Computing</strong> enables on-demand access to computing resources over the internet. I leverage cloud platforms to build scalable and reliable applications.</p><p><strong>What I use it for:</strong> Deploying applications, managing cloud infrastructure, implementing CI/CD pipelines, and utilizing cloud services like storage, databases, and serverless functions.</p><p><strong>Platforms:</strong> AWS (Amazon Web Services), Google Cloud Platform, Azure, and containerization with Docker and Kubernetes.</p>'
+            },
+            cpp: {
+                title: 'C++',
+                icon: 'fas fa-code',
+                description: '<p><strong>C++</strong> is a powerful, high-performance programming language that extends C with object-oriented features. It\'s widely used in system programming, game development, and applications requiring high performance.</p><p><strong>What I use it for:</strong> Performance-critical applications, system-level programming, algorithm implementation, competitive programming, and understanding low-level computer operations.</p><p><strong>Key Features:</strong> Object-oriented programming, templates and generic programming, manual memory management, STL (Standard Template Library), and excellent performance.</p>'
+            },
+            c: {
+                title: 'C',
+                icon: 'fas fa-file-code',
+                description: '<p><strong>C</strong> is a fundamental procedural programming language that has influenced countless other languages. It provides low-level access to memory and is known for its efficiency and portability.</p><p><strong>What I use it for:</strong> System programming, embedded systems, understanding computer architecture, operating system concepts, and building performance-critical applications.</p><p><strong>Key Features:</strong> Direct memory manipulation with pointers, minimal runtime overhead, portable across platforms, close to hardware, and the foundation of modern programming.</p>'
+            },
+            assembly: {
+                title: 'Assembly Language',
+                icon: 'fas fa-microchip',
+                description: '<p><strong>Assembly Language</strong> is a low-level programming language that provides direct control over hardware. It\'s specific to computer architecture and offers the closest representation to machine code that humans can read.</p><p><strong>What I use it for:</strong> Understanding how computers work at the hardware level, optimization of critical code sections, reverse engineering, and embedded systems programming.</p><p><strong>Key Features:</strong> Direct hardware control, maximum performance optimization, understanding of CPU architecture, register manipulation, and insight into how high-level code executes.</p>'
+            },
+            make: {
+                title: 'Make',
+                icon: 'fas fa-cogs',
+                description: '<p><strong>Make</strong> is a build automation tool that automatically builds executable programs and libraries from source code by reading Makefiles. It\'s essential for managing complex build processes.</p><p><strong>What I use it for:</strong> Automating compilation processes, managing project dependencies, creating efficient build systems, and ensuring reproducible builds across different environments.</p><p><strong>Key Features:</strong> Dependency tracking, incremental builds, cross-platform build automation, integration with compilers and tools, and simplified project workflow management.</p>'
+            }
+        };
+
+        // Function to open skill modal
+        function openSkillModal(skillKey) 
+        {
+            const skill = skillDescriptions[skillKey];
+            if (!skill) return;
+
+            const modal = document.getElementById('skillModal');
+            const modalIcon = document.getElementById('modalIcon');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+
+            modalIcon.className = 'modal-icon ' + skill.icon;
+            modalTitle.textContent = skill.title;
+            modalBody.innerHTML = skill.description;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close skill modal
+        function closeSkillModal() 
+        {
+            const modal = document.getElementById('skillModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('skillModal').addEventListener('click', function(e) 
+        {
+            if (e.target === this) 
+            {
+                closeSkillModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) 
+        {
+            if (e.key === 'Escape') 
+            {
+                closeSkillModal();
+            }
+        });
+
+        // Add hover and click effects to skill items
         document.querySelectorAll('.skill-item').forEach(item => 
             {
             item.addEventListener('mouseenter', function() 
@@ -1275,6 +1539,12 @@
             item.addEventListener('mouseleave', function() 
             {
                 this.style.transform = 'translateY(0) rotate(0deg)';
+            });
+
+            item.addEventListener('click', function() 
+            {
+                const skillKey = this.getAttribute('data-skill');
+                openSkillModal(skillKey);
             });
         });
 
