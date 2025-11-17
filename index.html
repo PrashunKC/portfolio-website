@@ -542,6 +542,8 @@
             transition: var(--transition-smooth);
             cursor: pointer;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover 
@@ -579,6 +581,9 @@
         .project-content 
         {
             padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-title 
@@ -618,6 +623,7 @@
         {
             display: flex;
             gap: 1rem;
+            margin-top: auto;
         }
 
         .project-link 
@@ -626,12 +632,23 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            position: relative;
+            z-index: 10;
         }
 
         .project-link:hover 
         {
-            color: var(--secondary-color);
-            transform: translateX(5px);
+            color: white;
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
         }
 
         /* Contact Section */
@@ -1143,17 +1160,19 @@
             <div class="project-card">
                 <div class="project-image"></div>
                 <div class="project-content">
-                    <h3 class="project-title">Just Starting</h3>
+                    <h3 class="project-title">8085 Emulation</h3>
                     <p class="project-description">
-                        I'm just beginning my journey as a developer. Exciting projects and 
-                        innovative solutions are coming soon. Stay tuned for updates!
+                        A fully functional emulator for the Intel 8085 microprocessor, simulating instruction execution 
+                        and hardware behavior. Built to understand low-level computing and assembly programming.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Coming Soon</span>
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Assembly</span>
+                        <span class="tech-tag">Completed</span>
                     </div>
                     <div class="project-links">
-                        <a href="#contact" class="project-link">
-                            <i class="fas fa-envelope"></i> Get In Touch
+                        <a href="https://github.com/PrashunKC/8085_emulation" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -1162,17 +1181,19 @@
             <div class="project-card">
                 <div class="project-image"></div>
                 <div class="project-content">
-                    <h3 class="project-title">Future Projects</h3>
+                    <h3 class="project-title">Operating System Project</h3>
                     <p class="project-description">
-                        I'm learning and building my skills in web development. 
-                        This space will showcase my growing portfolio as I create new projects.
+                        An ongoing project building a custom operating system from scratch. Exploring kernel development, 
+                        memory management, process scheduling, and system architecture fundamentals.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">In Progress</span>
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Assembly</span>
+                        <span class="tech-tag">Ongoing</span>
                     </div>
                     <div class="project-links">
-                        <a href="#contact" class="project-link">
-                            <i class="fas fa-heart"></i> Follow My Journey
+                        <a href="https://github.com/PrashunKC/project_OS" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -1181,17 +1202,82 @@
             <div class="project-card">
                 <div class="project-image"></div>
                 <div class="project-content">
-                    <h3 class="project-title">Learning & Growing</h3>
+                    <h3 class="project-title">Custom 8085 System</h3>
                     <p class="project-description">
-                        Every expert was once a beginner. I'm passionate about learning 
-                        new technologies and turning ideas into reality. Let's build something amazing together!
+                        A custom hardware and software system based on the 8085 microprocessor. Designed and implemented 
+                        the architecture, instruction set, and interfacing components.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Always Learning</span>
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Assembly</span>
+                        <span class="tech-tag">Completed</span>
                     </div>
                     <div class="project-links">
-                        <a href="#contact" class="project-link">
-                            <i class="fas fa-rocket"></i> Let's Collaborate
+                        <a href="https://github.com/PrashunKC/custom_8085_system" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Data Structures & Algorithms</h3>
+                    <p class="project-description">
+                        A comprehensive collection of data structure implementations and algorithm solutions. 
+                        Includes sorting, searching, graph algorithms, dynamic programming, and more.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Completed</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/PrashunKC/DSA" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="project-description">
+                        This responsive portfolio website built with HTML. Currently learning CSS and JavaScript 
+                        to enhance it with modern styling and interactive features in the future.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS - Learning</span>
+                        <span class="tech-tag">JS - Learning</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/PrashunKC/portfolio-website" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Model Trainer</h3>
+                    <p class="project-description">
+                        A Python-based machine learning model trainer for training and evaluating various ML models. 
+                        Implements data preprocessing, model training pipelines, and performance evaluation metrics.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Completed</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/PrashunKC/random_repo" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
                 </div>
@@ -1551,13 +1637,18 @@
         // Add click effect to project cards
         document.querySelectorAll('.project-card').forEach(card => 
         {
-            card.addEventListener('click', function() 
+            card.addEventListener('click', function(e) 
             {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => 
-                {
-                    this.style.transform = '';
-                }, 150);
+                // Don't trigger if clicking on the link itself
+                if (e.target.closest('.project-link')) {
+                    return;
+                }
+                
+                // Find the GitHub link in this card and open it
+                const link = this.querySelector('.project-link');
+                if (link) {
+                    window.open(link.href, '_blank');
+                }
             });
         });
 
