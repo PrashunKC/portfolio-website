@@ -4,7 +4,8 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/PrashunKC/portfolio-website/pulls)
 
-A modern, responsive, and interactive portfolio website showcasing my work as a Full Stack Developer from Nepal. Built with pure HTML, CSS, and JavaScript, featuring smooth animations, dark/light theme toggle, and a clean design.
+A responsive, interactive static portfolio website built with one HTML file
+containing the page markup, CSS, and JavaScript.
 
 ## 🚀 Live Demo
 
@@ -24,6 +25,7 @@ Visit the live website: **[prashunkc.com.np](https://www.prashunkc.com.np)**
 - **Typing Animation** - Dynamic text display showcasing different skills
 - **Animated Particles** - Background particle effects for enhanced visual experience
 - **Contact Information** - Easy-to-find contact details and social media links
+- **Contact Form UI** - A styled form with no backend submission handler
 - **Performance Optimized** - Fast loading times and smooth interactions
 - **Cross-browser Compatible** - Works across all modern browsers
 
@@ -107,7 +109,9 @@ portfolio-website/
 
 ## 🚀 Deployment
 
-This website is deployed and hosted on GitHub Pages with a custom domain. For detailed deployment instructions, see the [Deployment Guide](deployment-guide.md).
+This website is intended for static hosting and includes a root `CNAME` for
+custom-domain deployments. For current deployment instructions, see the
+[Deployment Guide](deployment-guide.md).
 
 ### Quick Deployment Options:
 

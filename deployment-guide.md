@@ -1,97 +1,58 @@
-# 🚀 Deployment Guide for prashunkc.com.np
+# Deployment guide
 
-## Quick Start Options
+This repository is a single static site. The entry point is [`index.html`](index.html);
+CSS and JavaScript are embedded in that file. There is no build step, package
+manager, server-side application, or form backend in this repository.
 
-### Option 1: Netlify (Recommended - Free & Easy)
+## Test locally
 
-1. **Visit**: https://netlify.com
-2. **Sign up** with GitHub, GitLab, or email
-3. **Drag & drop** your `prashunkc-portfolio.html` file
-4. **Rename** to `index.html` after upload
-5. **Connect domain**:
-   - Go to Domain settings
-   - Add custom domain: `prashunkc.com.np`
-   - Update your domain's DNS records
+From the repository directory, use any static HTTP server:
 
-### Option 2: Traditional Hosting
-
-1. **Purchase hosting** from a provider
-2. **Access cPanel/File Manager**
-3. **Upload files** to `public_html` or `www` folder
-4. **Rename** `prashunkc-portfolio.html` to `index.html`
-
-### Option 3: GitHub Pages
-
-1. **Create GitHub repository** named `prashunkc.github.io`
-2. **Upload** your HTML file as `index.html`
-3. **Enable Pages** in repository settings
-4. **Configure custom domain** in settings
-
-## DNS Configuration
-
-When connecting your domain, you'll need to update DNS records:
-
-**For Netlify:**
-```
-Type: CNAME
-Name: www
-Value: your-site-name.netlify.app
-
-Type: A
-Name: @
-Value: 75.2.60.5
+```bash
+python3 -m http.server 8000
 ```
 
-**For other hosts:**
-Check with your hosting provider for specific DNS settings.
+Open <http://localhost:8000>. Serving over HTTP is preferable to opening the
+file directly because it matches a hosted deployment and avoids browser
+restrictions around local resources.
 
-## Before Deployment Checklist
+Before publishing, check the navigation anchors, project links, theme toggle,
+typing/particle effects, responsive layout, and external font/icon resources.
+The contact form is presentation-only in the current HTML; it does not submit
+to a backend.
 
-- [ ] Test website locally in browser
-- [ ] Check all links work
-- [ ] Verify responsive design on mobile
-- [ ] Optimize images (if any added later)
-- [ ] Test contact form
-- [ ] Update meta tags for SEO
+## GitHub Pages
 
-## File Structure for Hosting
+1. Push the repository to GitHub.
+2. Open **Settings → Pages**.
+3. Select the deployment branch and the repository root (`/`) as the source.
+4. Save and wait for the Pages deployment.
+5. Keep [`CNAME`](CNAME) at the repository root if using the configured custom
+   domain.
 
-```
-your-website/
-├── index.html (your main file)
-├── assets/ (optional - for future)
-│   ├── images/
-│   ├── css/
-│   └── js/
-└── robots.txt (optional - for SEO)
-```
+GitHub Pages serves `index.html` automatically. Do not rename it to the old
+`prashunkc-portfolio.html` filename referenced by earlier versions of this
+guide.
 
-## Next Steps After Deployment
+## Other static hosts
 
-1. **SSL Certificate** - Most modern hosts provide free SSL
-2. **Google Analytics** - Track visitors
-3. **Search Console** - Submit to Google
-4. **Performance optimization** - Use tools like GTmetrix
-5. **Regular backups** - Keep your code safe
+Netlify, Vercel, traditional shared hosting, and object-storage website
+hosting can all deploy this directory without a build command. Set the
+publish directory to the repository root and use `index.html` as the entry
+document. Configure the custom domain and DNS records in the host's current
+dashboard; record names and IP addresses vary by provider and should not be
+copied from an old guide.
 
-## Troubleshooting
+## Custom domain checklist
 
-**Common Issues:**
-- **404 Error**: Check file is named `index.html`
-- **Styling not loading**: Check file paths
-- **Domain not working**: DNS changes take 24-48 hours
-- **Mobile layout issues**: Test responsive design
+- Confirm the host has issued an HTTPS certificate.
+- Configure the apex and/or `www` DNS records exactly as the host requests.
+- Keep `CNAME` aligned with the hostname configured in the hosting provider.
+- Allow time for DNS propagation and verify both HTTP and HTTPS redirects.
 
-## Cost Estimates
+## Maintenance
 
-**Free Options:**
-- Netlify: Free tier available
-- GitHub Pages: Free
-- Vercel: Free tier available
-
-**Paid Hosting:**
-- Shared hosting: $3-10/month
-- VPS: $10-50/month
-- Premium hosts: $5-20/month
-
-Choose based on your needs and budget!
+Update the content in `index.html` directly, then test locally before pushing.
+External Google Fonts and Font Awesome CDN links are runtime dependencies; if
+offline or self-contained hosting is required, vendor those assets and update
+the corresponding `<link>` tags.
